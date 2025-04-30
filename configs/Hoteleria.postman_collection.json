@@ -18,23 +18,23 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "nombres",
-									"value": "Dabp",
+									"key": "name",
+									"value": "Emanuel",
 									"type": "text"
 								},
 								{
-									"key": "apellidos",
+									"key": "surname",
 									"value": "Bercian ",
 									"type": "text"
 								},
 								{
-									"key": "nombreUsuario",
-									"value": "Dabp213123",
+									"key": "username",
+									"value": "Emanuel",
 									"type": "text"
 								},
 								{
-									"key": "correo",
-									"value": "dabp111@gmail.com",
+									"key": "email",
+									"value": "emanuel@gmail.com",
 									"type": "text"
 								},
 								{
@@ -43,8 +43,8 @@
 									"type": "text"
 								},
 								{
-									"key": "telefono",
-									"value": "49099818",
+									"key": "phone",
+									"value": "48596325",
 									"type": "text"
 								},
 								{
@@ -60,10 +60,9 @@
 									"disabled": true
 								},
 								{
-									"key": "",
-									"value": "",
-									"type": "text",
-									"disabled": true
+									"key": "dpi",
+									"value": "1245986325987",
+									"type": "text"
 								}
 							]
 						},
@@ -91,7 +90,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"correo\": \"dabp111@gmail.com\",\r\n    \"password\": \"dBerci4n!\"\r\n}",
+							"raw": "{\r\n    \"email\": \"Dabp@gmail.com\",\r\n    \"password\": \"dBerc1an!\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -128,7 +127,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBmYjkyNDZlYWJhMTc2NmVlNTgxNTgiLCJpYXQiOjE3NDU4NjA5MjMsImV4cCI6MTc0NTg2NDUyM30.sxzG_ySNpLlrim3E-AwrHuAVT1d0VdCOwxUjClrzsb0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODExODU3MTZkMDIyMjY0ODY3MWViMDAiLCJpYXQiOjE3NDU5Nzg5MTIsImV4cCI6MTc0NTk4MjUxMn0.axwrbJFwpXbuVkM8zKpCfC_KiG_dmkPAvQaC5VjW6is",
 									"type": "string"
 								}
 							]
@@ -137,7 +136,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nombres\": \"Yo Diego\",\r\n    \"apellidos\": \"Yo Bercian\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Emmanuel Otto\",\r\n    \"surname\": \"Gomez\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -145,7 +144,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3001/hoteleria/v1/usuario/actualizarUsuario/680fb388e4ece5e2ae0020b4",
+							"raw": "http://localhost:3001/hoteleria/v1/user/updateUser/681185e5b32129bc8028b2ba",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -154,9 +153,9 @@
 							"path": [
 								"hoteleria",
 								"v1",
-								"usuario",
-								"actualizarUsuario",
-								"680fb388e4ece5e2ae0020b4"
+								"user",
+								"updateUser",
+								"681185e5b32129bc8028b2ba"
 							]
 						}
 					},
@@ -170,15 +169,24 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBmYjkyNDZlYWJhMTc2NmVlNTgxNTgiLCJpYXQiOjE3NDU4NjA5MjMsImV4cCI6MTc0NTg2NDUyM30.sxzG_ySNpLlrim3E-AwrHuAVT1d0VdCOwxUjClrzsb0",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODExODU3MTZkMDIyMjY0ODY3MWViMDAiLCJpYXQiOjE3NDU5Nzg5MTIsImV4cCI6MTc0NTk4MjUxMn0.axwrbJFwpXbuVkM8zKpCfC_KiG_dmkPAvQaC5VjW6is",
 									"type": "string"
 								}
 							]
 						},
 						"method": "DELETE",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:3001/hoteleria/v1/usuario/eliminarUsuario/",
+							"raw": "http://localhost:3001/hoteleria/v1/user/deleteUser/681185e5b32129bc8028b2ba",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -187,9 +195,9 @@
 							"path": [
 								"hoteleria",
 								"v1",
-								"usuario",
-								"eliminarUsuario",
-								""
+								"user",
+								"deleteUser",
+								"681185e5b32129bc8028b2ba"
 							]
 						}
 					},
