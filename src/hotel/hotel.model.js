@@ -10,7 +10,7 @@ const hotelSchema = new Schema({
         city: { type: String, required: true },
         street: { type: String, required: true },
     },
-    image: {
+    hotelPicture: {
         type: String,
         required: true,
     },
@@ -22,7 +22,7 @@ const hotelSchema = new Schema({
     },
     type: {
         type: String,
-        enum: ['Motel', 'Resort', 'Boutifque', 'Casa', 'Familiar', 'Temático', 'Económico'],
+        enum: ['Motel', 'Resort', 'Boutique', 'Casa', 'Familiar', 'Temático', 'Económico'],
         required: true,
     },
     phone: {
@@ -31,11 +31,28 @@ const hotelSchema = new Schema({
         maxLength: 8,
         required: true
     },
+    checkInTime: {
+        type: String,   // Formato "HH:MM" (ej: "15:00" para 3:00 PM)
+        required: true,
+        default: "15:00",
+        validate: {
+          validator: (v) => /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(v),
+          message: "Formato de hora inválido (use HH:MM, ej: 15:00)",
+        },
+      },
+      checkOutTime: {
+        type: String,
+        required: true,
+        default: "12:00",
+        validate: {
+          validator: (v) => /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(v),
+          message: "Formato de hora inválido (use HH:MM, ej: 12:00)",
+        },
+      },
     
-},
-{
+}, {
     versionKey: false,
-    timeStamps: true
+    timestamps: true
 
 })
 

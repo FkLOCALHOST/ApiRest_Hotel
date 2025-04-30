@@ -8,6 +8,7 @@ import { dbConnection } from "./mongo.js";
 import apiLimiter from "../src/middlewares/rate-limit-validator.js";
 import authRoutes from "../src/auth/auth.routes.js"
 import userRoutes from "../src/user/user.routes.js"
+import hotelRoutes from "../src/hotel/hotel.routes.js"
 import { adminDefaultCreated } from "../src/user/user.controller.js"
 
 const middlewares = (app) => {
@@ -22,6 +23,7 @@ const middlewares = (app) => {
 const routes = (app) => {
     app.use("/hoteleria/v1/auth", authRoutes)
     app.use("/hoteleria/v1/user", userRoutes)
+    app.use("/hoteleria/v1/hotel", hotelRoutes)
 };
 
 const conectarDB = async () => {
