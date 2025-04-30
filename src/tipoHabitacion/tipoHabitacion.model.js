@@ -1,15 +1,15 @@
 import { Schema, model } from "mongoose";
 
-const tipoHabitacionSchema = Schema({
-    nombreTipoHabitacion: {
+const roomTypeSchema = Schema({
+    roomTypeName: {
         type: String,
-        required: [true, "Se necesita el nombre del tipo de habitacion"],
-        maxlength: [50, "El nombre del tipo de habitacion no puede ser mayor a 50 caracteres"]
+        required: [true, "The room type name is required"],
+        maxlength: [50, "The room type name cannot exceed 50 characters"]
     },
-    descripcionTipoHabitacion: {
+    roomTypeDescription: {
         type: String,
-        required: [true, "Se necesita la descripcion del tipo de habitacion"],
-        maxlength: [200, "La descripcion del tipo de habitacion no puede ser mayor a 200 caracteres"]
+        required: [true, "The room type description is required"],
+        maxlength: [200, "The room type description cannot exceed 200 characters"]
     }
 },
 {
@@ -17,11 +17,11 @@ const tipoHabitacionSchema = Schema({
     versionKey: false
 })
 
- /*tipoHabitacionSchema.methods.toJSON = function () {
-    const { __v, _id, ...tipoHabitacion } = this.toObject();
-    tipoHabitacion.uid = _id;
-    return tipoHabitacion;
+/*roomTypeSchema.methods.toJSON = function () {
+    const { __v, _id, ...roomType } = this.toObject();
+    roomType.uid = _id;
+    return roomType;
 } 
 */
 
-export default model('TipoHabitacion', tipoHabitacionSchema);
+export default model('RoomType', roomTypeSchema);

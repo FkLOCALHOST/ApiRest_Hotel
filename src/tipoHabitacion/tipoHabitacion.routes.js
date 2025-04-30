@@ -1,15 +1,15 @@
 import { Router } from "express";
-import { addTipoHabitacion, getTipoHabitacion, updateTipoHabitacion, deleteTipoHabitacion } from "./tipoHabitacion.controller.js";
-import { addTipoHabitacionValidator, updateTipoHabitacionValidator, deleteTipoHabitacionValidator} from "../middlewares/tipoHabitacion-validators.js";   
+import { addRoomType, getRoomType, updateRoomType, deleteRoomType } from "./tipoHabitacion.controller.js";
+import { addRoomTypeValidator, updateRoomTypeValidator, deleteRoomTypeValidator } from "../middlewares/tipoHabitacion-validators.js";   
 
 const router = Router();
 
-router.post("/agregarTipoHabitacion", addTipoHabitacionValidator, addTipoHabitacion);
+router.post("/addRoomType", addRoomTypeValidator, addRoomType);
 
-router.get("/listarTipoHabitacion", getTipoHabitacion);
+router.get("/listRoomTypes", getRoomType);
 
-router.put("/actualizarTipoHabitacion/:id", updateTipoHabitacionValidator, updateTipoHabitacion);  
+router.put("/updateRoomType/:id", updateRoomTypeValidator, updateRoomType);  
 
-router.delete("/eliminarTipoHabitacion/:id", deleteTipoHabitacionValidator, deleteTipoHabitacion);
+router.delete("/deleteRoomType/:id", deleteRoomTypeValidator, deleteRoomType);
 
 export default router;

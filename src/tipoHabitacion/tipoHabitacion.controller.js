@@ -1,10 +1,10 @@
-import TipoHabitacion from "./tipoHabitacion.model.js";
+import RoomType from "./tipoHabitacion.model.js";
 
-export const addTipoHabitacion = async (req, res) => {
+export const addRoomType = async (req, res) => {
     try {
-        const tipoHabitacion = new TipoHabitacion(req.body);
-        const tipoHabitacionCreated = await tipoHabitacion.save();
-        res.status(201).json(tipoHabitacionCreated);
+        const roomType = new RoomType(req.body);
+        const roomTypeCreated = await roomType.save();
+        res.status(201).json(roomTypeCreated);
     } catch (error) {
         res.status(500).json({
             error: "Error al agregar el tipo de habitacion",
@@ -13,10 +13,10 @@ export const addTipoHabitacion = async (req, res) => {
     }
 }
 
-export const getTipoHabitacion = async (req, res) => {
+export const getRoomType = async (req, res) => {
     try {
-        const tipoHabitacion = await TipoHabitacion.find();
-        res.status(200).json(tipoHabitacion);
+        const roomType = await RoomType.find();
+        res.status(200).json(roomType);
     } catch (error) {
         res.status(500).json({
             error: "Error al obtener el tipo de habitacion",
@@ -25,21 +25,22 @@ export const getTipoHabitacion = async (req, res) => {
     }
 }
 
-export const updateTipoHabitacion = async (req, res) => {
+export const updateRoomType = async (req, res) => {
     try {
-        const tipoHabitacion = await TipoHabitacion.findByIdAndUpdate(req.params.id, req.body, { new: true});
-        res.status(200).json(tipoHabitacion);
+        const roomType = await RoomType.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.status(200).json(roomType);
     } catch (error) {
         res.status(500).json({
             error: "Error al actualizar el tipo de habitacion",
-            details: error.message });
+            details: error.message 
+        });
     }
 }
 
-export const deleteTipoHabitacion = async (req, res) => {
+export const deleteRoomType = async (req, res) => {
     try {
-        const tipoHabitacion = await TipoHabitacion.findByIdAndDelete(req.params.id);
-        res.status(200).json(tipoHabitacion);
+        const roomType = await RoomType.findByIdAndDelete(req.params.id);
+        res.status(200).json(roomType);
     } catch (error) {
         res.status(500).json({
             error: "Error al eliminar el tipo de habitacion",
