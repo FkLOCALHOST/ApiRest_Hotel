@@ -24,4 +24,11 @@ export const updateTipoHabitacionValidator = [
     handleErrors
 ];
 
-
+export const deleteTipoHabitacionValidator = [
+    validateJWT,
+    hasRoles("ADMIN_ROLE","HOST_ROLE"),
+    param("id").isMongoId().withMessage("El id no es un id de mongo").custom(tipoHabitacionExists).withMessage("El tipo de habitación no existe"),
+    param("id").custom(tipoHabitacionExists),
+    validarCampos,
+    handleErrors
+];

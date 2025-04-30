@@ -35,3 +35,15 @@ export const updateTipoHabitacion = async (req, res) => {
             details: error.message });
     }
 }
+
+export const deleteTipoHabitacion = async (req, res) => {
+    try {
+        const tipoHabitacion = await TipoHabitacion.findByIdAndDelete(req.params.id);
+        res.status(200).json(tipoHabitacion);
+    } catch (error) {
+        res.status(500).json({
+            error: "Error al eliminar el tipo de habitacion",
+            details: error.message 
+        });
+    }
+}

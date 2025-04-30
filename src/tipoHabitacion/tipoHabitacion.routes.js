@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { addTipoHabitacion, getTipoHabitacion, updateTipoHabitacion } from "./tipoHabitacion.controller.js";
-import { addTipoHabitacionValidator, updateTipoHabitacionValidator} from "../middlewares/tipoHabitacion-validators.js";   
+import { addTipoHabitacion, getTipoHabitacion, updateTipoHabitacion, deleteTipoHabitacion } from "./tipoHabitacion.controller.js";
+import { addTipoHabitacionValidator, updateTipoHabitacionValidator, deleteTipoHabitacionValidator} from "../middlewares/tipoHabitacion-validators.js";   
 
 const router = Router();
 
@@ -10,7 +10,6 @@ router.get("/listarTipoHabitacion", getTipoHabitacion);
 
 router.put("/actualizarTipoHabitacion/:id", updateTipoHabitacionValidator, updateTipoHabitacion);  
 
-
-
+router.delete("/eliminarTipoHabitacion/:id", deleteTipoHabitacionValidator, deleteTipoHabitacion);
 
 export default router;
