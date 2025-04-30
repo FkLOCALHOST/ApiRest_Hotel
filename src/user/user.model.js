@@ -11,20 +11,17 @@ const userSchema = Schema({
     },
     username:{
         type: String,
-        required: [true, "El nombre de usuario es obligatorio"],
-        unique:true
+        required: [true, "El nombre de usuario es obligatorio"]
     },
     dpi: {
         type: String,
         required: [true, 'DPI is required'],
-        unique: true,
         minLength: 13,
         maxLength: 13
     },
     email:{
         type: String,
-        required: [true, "El correo es obligatorio"],
-        unique: true
+        required: [true, "El correo es obligatorio"]
     },
     password:{
         type: String,
@@ -34,8 +31,7 @@ const userSchema = Schema({
         type: String,
         minLength: 8,
         maxLength: 8,
-        required: [true, "El telefono es obligatorio"],
-        unique: true
+        required: [true, "El telefono es obligatorio"]
     },
     score: {
         type: Number,
@@ -63,5 +59,11 @@ const userSchema = Schema({
     timeStamps: true
 })
 
+
+userSchema.methods.toJSON = function(){
+    const {_id, password, ...user} = this.toObject(); 
+    user.id = _id
+    return user
+}
 
 export default model("User", userSchema)

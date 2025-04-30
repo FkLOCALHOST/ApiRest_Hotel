@@ -4,7 +4,7 @@ import { hash, verify } from "argon2";
 export const adminDefaultCreated = async (req, res) => {
     try{
 
-        const defaultAdmin = await User.findOne({ email: "dbercian@gmail.com" });
+        const defaultAdmin = await User.findOne({ email: "Dabp@gmail.com" });
         const encryptedPassword = await hash("dBerc1an!")
 
         if(!defaultAdmin){
@@ -36,7 +36,7 @@ export const updateUser = async (req, res) => {
         const data = req.body;
         const userToken = req.usuario;
 
-        if(userToken.id !== uid && userToken.role !== 'ADMIN_ROLE'){
+        if((userToken.id).toString() !== uid && userToken.role !== 'ADMIN_ROLE'){
             return res.status(403).json({
                 success: false,
                 msg: 'No tienes permisos para modificar este usuario'
@@ -74,30 +74,29 @@ export const deleteUser = async (req, res) => {
         const { uid } = req.params; 
         const userToken = req.usuario;
 
-        if (userToken._id !== uid && userToken.role !== 'ADMIN_ROLE') {
+        if((userToken._id).toString() !== uid && userToken.role !== 'ADMIN_ROLE') {
             return res.status(403).json({
                 success: false,
                 message: 'You do not have permission to delete this user'
             });
         }
 
-        const user = await User.findByIdAndUpdate(uid, {status: false}, { new: true });
+        const userUpdate = await User.findByIdAndUpdate(uid, {status: false}, { new: true });
 
-        if (!user) {
+        if (!userUpdate) {
             return res.status(404).json({
                 success: false,
                 message: 'User not found'
             });
         }
 
-
         return res.status(200).json({
             success: true,
             message: 'User account successfully deactivated',
-            user: user
+            user: userUpdate
         });
 
-    } catch (err) {
+    }catch (err) {
         return res.status(500).json({
             success: false,
             message: 'Error deactivating user account',
