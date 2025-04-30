@@ -1,5 +1,5 @@
 import { body, param } from "express-validator";
-import { emailExists, usernameExists, userExists } from "../helpers/db-validators.js";
+import { emailExists, usernameExists, userExists, dpiExists } from "../helpers/db-validators.js";
 import { validarCampos } from "./validate-fields.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
 import { handleErrors } from "./handle-errors.js";
@@ -11,6 +11,7 @@ export const registerValidator = [
     body("surname").notEmpty().withMessage("Last name is required"),
     body("username").notEmpty().withMessage("Username is required"),
     body("dpi").notEmpty().withMessage("Dpi is required"),
+    body("dpi").custom(dpiExists),
     body("email").notEmpty().withMessage("Email is required"),
     body("email").isEmail().withMessage("This is not a valid email."),
     body("email").custom(emailExists),
@@ -45,7 +46,7 @@ export const updateUserValidator = [
 ];
 
 export const deleteUserValidator = [
-    validateJWT,
+    validateJWT,    
     hasRoles("ADMIN_ROLE", "CLIENT_ROLE"),
     param("uid", "Not a valid ID MONGO").isMongoId(),
     param("uid").custom(userExists),
