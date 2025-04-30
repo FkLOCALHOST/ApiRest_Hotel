@@ -1,20 +1,27 @@
 import { Schema, model} from "mongoose";
 
-const usuarioSchema = Schema({
-    nombres:{
+const userSchema = Schema({
+    name:{
         type: String,
         required: [true, "El nombre es obligatorio"]
     },
-    apellidos:{
+    surname:{
         type: String,
         required: [true, "Los apellidos son obligatorios"]
     },
-    nombreUsuario:{
+    username:{
         type: String,
         required: [true, "El nombre de usuario es obligatorio"],
         unique:true
     },
-    correo:{
+    dpi: {
+        type: String,
+        required: [true, 'DPI is required'],
+        unique: true,
+        minLength: 13,
+        maxLength: 13
+    },
+    email:{
         type: String,
         required: [true, "El correo es obligatorio"],
         unique: true
@@ -23,23 +30,30 @@ const usuarioSchema = Schema({
         type: String,
         required: [true, "La contraseña es obligatoria"],
     },
-    telefono:{
+    phone:{
         type: String,
         minLength: 8,
         maxLength: 8,
         required: [true, "El telefono es obligatorio"],
         unique: true
     },
-    rol:{
+    score: {
+        type: Number,
+        required: true,
+        default: 0,
+        min: 0,
+        max: 5
+    },
+    role:{
         type: String,
         required: true,
         enum: ["ADMIN_ROLE", "CLIENT_ROLE", "HOST_ROLE"],
         default: "CLIENT_ROLE"
     },
-    fotoPerfil:{
+    profilePicture:{
         type: String
     },
-    estado:{
+    status:{
         type: Boolean,
         default: true
     }
@@ -50,4 +64,4 @@ const usuarioSchema = Schema({
 })
 
 
-export default model("Usuario", usuarioSchema)
+export default model("User", userSchema)

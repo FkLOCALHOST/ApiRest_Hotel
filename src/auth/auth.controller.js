@@ -1,27 +1,27 @@
 import { hash, verify } from "argon2"
-import Usuario from "../usuario/usuario.model.js"
+import User from "../user/user.model.js"
 import { generateJWT } from "../helpers/generate-jwt.js";
 
-export const registro = async (req, res) => {
+export const register = async (req, res) => {
     try {
         const data = req.body;
-        let fotoPerfil = req.file ? req.file.filename : null;
-        const passwordEncriptada = await hash(data.password)
-        data.password = passwordEncriptada
-        data.fotoPerfil = fotoPerfil
+        let profilePicture = req.file ? req.file.filename : null;
+        const encryptedPassword = await hash(data.password)
+        data.password = encryptedPassword
+        data.profilePicture = profilePicture
         
 
-        const usuario = await Usuario.create(data);
+        const user = await User.create(data);
 
         return res.status(201).json({
-            message: "Usuario registrado correctamente",
-            nombreUsuario: usuario.nombreUsuario,
-            correo: usuario.correo
+            message: "Successfully registered user",
+            username: user.username,
+            email: user.email
         });
 
     }catch(err) {
         return res.status(500).json({
-            message: "Error al registrar el usuario",
+            message: "Error registering user",
             error: err.message
         });
     }
@@ -29,34 +29,34 @@ export const registro = async (req, res) => {
 
 
 export const login = async (req, res) => {
-    const { correo, nombreUsuario, password } = req.body
+    const { email, username, password } = req.body
     try{
-        const usuario = await Usuario.findOne({
-            $or:[{correo: correo}, {nombreUsuario: nombreUsuario}]
+        const user = await User.findOne({
+            $or:[{email: email}, {username: username}]
         })
 
-        if(!usuario){
+        if(!user){
             return res.status(400).json({
                 message: "Crendenciales inválidas",
                 error:"No existe el usuario o correo ingresado"
             })
         }
 
-        const validarContraseña = await verify(usuario.password, password)
+        const validPassword = await verify(user.password, password)
 
-        if(!validarContraseña){
+        if(!validPassword){
             return res.status(400).json({
                 message: "Crendenciales inválidas",
                 error: "Contraseña incorrecta"
             })
         }
 
-        const token = await generateJWT(usuario.id)
+        const token = await generateJWT(user.id)
 
         return res.status(200).json({
             message: "Login exitoso",
-            nombreUsuario: usuario.nombreUsuario,
-            detallesUsuario: {
+            username: user.username,
+            userDetails: {
                 token: token,
             }
         })

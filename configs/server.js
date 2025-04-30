@@ -7,7 +7,8 @@ import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
 import apiLimiter from "../src/middlewares/rate-limit-validator.js";
 import authRoutes from "../src/auth/auth.routes.js"
-import usuarioRoutes from "../src/usuario/usuario.routes.js"
+import userRoutes from "../src/user/user.routes.js"
+import { adminDefaultCreated } from "../src/user/user.controller.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false }));
@@ -20,7 +21,7 @@ const middlewares = (app) => {
 
 const routes = (app) => {
     app.use("/hoteleria/v1/auth", authRoutes)
-    app.use("/hoteleria/v1/usuario", usuarioRoutes)
+    app.use("/hoteleria/v1/user", userRoutes)
 };
 
 const conectarDB = async () => {
@@ -38,6 +39,7 @@ export const initServer = () => {
         middlewares(app);
         conectarDB();
         routes(app);
+        adminDefaultCreated();
         const port = process.env.PORT || 3001; // Asegúrate de que el puerto sea 3002
         app.listen(port, () => {
             console.log(`Server running on port ${port} `);

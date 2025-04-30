@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import Usuario from "../usuario/usuario.model.js"
+import User from "../user/user.model.js"
 
 export const validateJWT = async (req, res, next) => {
     try{
@@ -8,7 +8,7 @@ export const validateJWT = async (req, res, next) => {
         if(!token){
             return res.status(400).json({
                 success: false,
-                message: "No existe token en la petición"
+                message: "No token exists in the request"
             })
         }
 
@@ -16,19 +16,19 @@ export const validateJWT = async (req, res, next) => {
 
         const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY)
 
-        const user = await Usuario.findById(uid)
+        const user = await User.findById(uid)
 
         if(!user){
            return res.status(400).json({
                 success: false,
-                message: "usaurio no existe en la DB"
+                message: "user does not exist in the DB"
            }) 
         }
 
         if(user.status === false){
             return res.status(400).json({
                 success: false,
-                message: " Usuario desactivado previamente"
+                message: "Previously deactivated user"
             })
         }
 
@@ -38,7 +38,7 @@ export const validateJWT = async (req, res, next) => {
     }catch(err){
         return res.status(500).json({
             success: false,
-            message : "Error al validar el token",
+            message : "Error validating token",
             error: err.message
         })
     }
