@@ -1,4 +1,9 @@
+ cescobar-2019272
+import Usuario from "../user/user.model.js"
+import Services from "../services/services.model.js"
+
 import User from "../user/user.model.js"
+ developer
 
 export const emailExists = async (email = "") => {
     const existe = await User.findOne({ email, status: true });
@@ -25,5 +30,12 @@ export const userExists = async (uid = " ") => {
     const existe = await User.findById(uid)
     if(!existe){
         throw new Error("No existe el usuario con el ID proporcionado")
+    }
+}
+
+export const serviceExists = async (sid = " ") => {
+    const existe = await Services.findById(sid)
+    if(!existe){
+        throw new Error("No existe el servicio con el ID proporcionado")
     }
 }
