@@ -46,3 +46,11 @@ export const serviceExists = async (sid = " ") => {
     }
 }
 
+export const eventExists = async (name = "") => {
+    const existe = await Event.findOne({ name })
+    if (existe) {
+        throw new Error("Ya existe un evento con ese nombre")
+    }
+}
+
+
