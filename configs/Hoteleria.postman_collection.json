@@ -18,16 +18,34 @@
 							"mode": "formdata",
 							"formdata": [
 								{
+ jramirez-2023013
+									"key": "nombres",
+									"value": "Dabp",
+									"type": "text"
+								},
+								{
+									"key": "apellidos",
+
 									"key": "name",
 									"value": "Emanuel",
 									"type": "text"
 								},
 								{
 									"key": "surname",
+ developer
 									"value": "Bercian ",
 									"type": "text"
 								},
 								{
+ jramirez-2023013
+									"key": "nombreUsuario",
+									"value": "Dabp213123",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "dabp111@gmail.com",
+
 									"key": "username",
 									"value": "Emanuel",
 									"type": "text"
@@ -35,6 +53,7 @@
 								{
 									"key": "email",
 									"value": "emanuel@gmail.com",
+ developer
 									"type": "text"
 								},
 								{
@@ -43,8 +62,13 @@
 									"type": "text"
 								},
 								{
+ jramirez-2023013
+									"key": "telefono",
+									"value": "49099818",
+
 									"key": "phone",
 									"value": "48596325",
+ developer
 									"type": "text"
 								},
 								{
@@ -60,9 +84,16 @@
 									"disabled": true
 								},
 								{
+ jramirez-2023013
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+
 									"key": "dpi",
 									"value": "1245986325987",
 									"type": "text"
+ developer
 								}
 							]
 						},
@@ -90,7 +121,11 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
+ jramirez-2023013
+							"raw": "{\r\n    \"correo\": \"dabp111@gmail.com\",\r\n    \"password\": \"dBerci4n!\"\r\n}",
+
 							"raw": "{\r\n    \"email\": \"Dabp@gmail.com\",\r\n    \"password\": \"dBerc1an!\"\r\n}",
+ developer
 							"options": {
 								"raw": {
 									"language": "json"
@@ -127,7 +162,11 @@
 							"bearer": [
 								{
 									"key": "token",
+ jramirez-2023013
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBmYjkyNDZlYWJhMTc2NmVlNTgxNTgiLCJpYXQiOjE3NDU4NjA5MjMsImV4cCI6MTc0NTg2NDUyM30.sxzG_ySNpLlrim3E-AwrHuAVT1d0VdCOwxUjClrzsb0",
+
 									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODExODU3MTZkMDIyMjY0ODY3MWViMDAiLCJpYXQiOjE3NDU5Nzg5MTIsImV4cCI6MTc0NTk4MjUxMn0.axwrbJFwpXbuVkM8zKpCfC_KiG_dmkPAvQaC5VjW6is",
+ developer
 									"type": "string"
 								}
 							]
@@ -136,7 +175,11 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
+ jramirez-2023013
+							"raw": "{\r\n    \"nombres\": \"Yo Diego\",\r\n    \"apellidos\": \"Yo Bercian\"\r\n}",
+
 							"raw": "{\r\n    \"name\": \"Emmanuel Otto\",\r\n    \"surname\": \"Gomez\"\r\n}",
+ developer
 							"options": {
 								"raw": {
 									"language": "json"
@@ -144,7 +187,11 @@
 							}
 						},
 						"url": {
+ jramirez-2023013
+							"raw": "http://localhost:3001/hoteleria/v1/usuario/actualizarUsuario/680fb388e4ece5e2ae0020b4",
+
 							"raw": "http://localhost:3001/hoteleria/v1/user/updateUser/681185e5b32129bc8028b2ba",
+ developer
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -153,9 +200,15 @@
 							"path": [
 								"hoteleria",
 								"v1",
+ jramirez-2023013
+								"usuario",
+								"actualizarUsuario",
+								"680fb388e4ece5e2ae0020b4"
+
 								"user",
 								"updateUser",
 								"681185e5b32129bc8028b2ba"
+ developer
 							]
 						}
 					},
@@ -169,13 +222,21 @@
 							"bearer": [
 								{
 									"key": "token",
+ jramirez-2023013
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODBmYjkyNDZlYWJhMTc2NmVlNTgxNTgiLCJpYXQiOjE3NDU4NjA5MjMsImV4cCI6MTc0NTg2NDUyM30.sxzG_ySNpLlrim3E-AwrHuAVT1d0VdCOwxUjClrzsb0",
+
 									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODExODU3MTZkMDIyMjY0ODY3MWViMDAiLCJpYXQiOjE3NDU5Nzg5MTIsImV4cCI6MTc0NTk4MjUxMn0.axwrbJFwpXbuVkM8zKpCfC_KiG_dmkPAvQaC5VjW6is",
+ developer
 									"type": "string"
 								}
 							]
 						},
 						"method": "DELETE",
 						"header": [],
+ jramirez-2023013
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/usuario/eliminarUsuario/",
+
 						"body": {
 							"mode": "raw",
 							"raw": "",
@@ -187,6 +248,7 @@
 						},
 						"url": {
 							"raw": "http://localhost:3001/hoteleria/v1/user/deleteUser/681185e5b32129bc8028b2ba",
+ developer
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -195,9 +257,15 @@
 							"path": [
 								"hoteleria",
 								"v1",
+ jramirez-2023013
+								"usuario",
+								"eliminarUsuario",
+								""
+
 								"user",
 								"deleteUser",
 								"681185e5b32129bc8028b2ba"
+ developer
 							]
 						}
 					},
