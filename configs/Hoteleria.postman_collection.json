@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "7389ec24-06ed-4dca-95a6-fa2556af7cee",
+		"_postman_id": "5e766289-6cb5-4d24-a051-8ebac7750c41",
 		"name": "Hoteleria",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "38160952"
+		"_exporter_id": "42278127"
 	},
 	"item": [
 		{
@@ -74,9 +74,16 @@
 						"url": {
 							"raw": "http://localhost:3001/hoteleria/v1/auth/register",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "3001",
-							"path": ["hoteleria", "v1", "auth", "register"]
+							"path": [
+								"hoteleria",
+								"v1",
+								"auth",
+								"register"
+							]
 						}
 					},
 					"response": []
@@ -98,9 +105,16 @@
 						"url": {
 							"raw": "http://localhost:3001/hoteleria/v1/auth/login",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "3001",
-							"path": ["hoteleria", "v1", "auth", "login"]
+							"path": [
+								"hoteleria",
+								"v1",
+								"auth",
+								"login"
+							]
 						}
 					},
 					"response": []
@@ -137,9 +151,17 @@
 						"url": {
 							"raw": "http://localhost:3001/hoteleria/v1/usuario/actualizarUsuario/680fb388e4ece5e2ae0020b4",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "3001",
-							"path": ["hoteleria", "v1", "usuario", "actualizarUsuario", "680fb388e4ece5e2ae0020b4"]
+							"path": [
+								"hoteleria",
+								"v1",
+								"usuario",
+								"actualizarUsuario",
+								"680fb388e4ece5e2ae0020b4"
+							]
 						}
 					},
 					"response": []
@@ -160,11 +182,110 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/hoteleria/v1/usuario/eliminarUsuario/",
+							"raw": "http://localhost:3001/hoteleria/v1/usuario/eliminarUsuario",
 							"protocol": "http",
-							"host": ["localhost"],
+							"host": [
+								"localhost"
+							],
 							"port": "3001",
-							"path": ["hoteleria", "v1", "usuario", "eliminarUsuario"]
+							"path": [
+								"hoteleria",
+								"v1",
+								"usuario",
+								"eliminarUsuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hotel",
+			"item": [
+				{
+					"name": "Crear hotel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODExYjFkZjVmZDZjMmU1Y2VhMDYyNjMiLCJpYXQiOjE3NDYwNjE1MjIsImV4cCI6MTc0NjA2NTEyMn0.MqFf_bfTmElrDLL8X62spDFmJv_50TKh6rBezUxwYyo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Americas",
+									"type": "text"
+								},
+								{
+									"key": "address[country]",
+									"value": "Guatemala",
+									"type": "text"
+								},
+								{
+									"key": "address[city]",
+									"value": "Guatemala",
+									"type": "text"
+								},
+								{
+									"key": "address[street]",
+									"value": "124 calle principal",
+									"type": "text"
+								},
+								{
+									"key": "hotelPicture",
+									"type": "file",
+									"src": "/C:/Users/danie/Downloads/Goku.jpg"
+								},
+								{
+									"key": "rating",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "Familiar",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "checkInTime",
+									"value": "06:00",
+									"type": "text"
+								},
+								{
+									"key": "checkOutTime",
+									"value": "21:00",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/hotel/createHotel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"hotel",
+								"createHotel"
+							]
 						}
 					},
 					"response": []
