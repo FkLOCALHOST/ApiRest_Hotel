@@ -7,15 +7,12 @@ import morgan from "morgan";
 import { dbConnection } from "./mongo.js";
 import apiLimiter from "../src/middlewares/rate-limit-validator.js";
 import authRoutes from "../src/auth/auth.routes.js"
- jramirez-2023013
-import usuarioRoutes from "../src/usuario/usuario.routes.js"
-import tipoHabitacion from "../src/tipoHabitacion/tipoHabitacion.routes.js"
-
+import roomTypeRoutes from "../src/roomType/roomType.routes.js"
 import userRoutes from "../src/user/user.routes.js"
 import hotelRoutes from "../src/hotel/hotel.routes.js"
 import { adminDefaultCreated } from "../src/user/user.controller.js"
 import ServiceRoutes from "../src/services/services.routes.js"
- developer
+
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false }));
@@ -28,17 +25,10 @@ const middlewares = (app) => {
 
 const routes = (app) => {
     app.use("/hoteleria/v1/auth", authRoutes)
- jramirez-2023013
-    app.use("/hoteleria/v1/usuario", usuarioRoutes)
-    app.use("/hoteleria/v1/tipoHabitacion", tipoHabitacion)
-
+    app.use("/hoteleria/v1/roomType", roomTypeRoutes)
     app.use("/hoteleria/v1/user", userRoutes)
- cescobar-2019272
     app.use("/hoteleria/v1/service", ServiceRoutes)
-
     app.use("/hoteleria/v1/hotel", hotelRoutes)
- developer
- developer
 };
 
 const conectarDB = async () => {
