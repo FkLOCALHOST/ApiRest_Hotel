@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { addRoomType, getRoomType, updateRoomType, deleteRoomType } from "./tipoHabitacion.controller.js";
-import { addRoomTypeValidator, updateRoomTypeValidator, deleteRoomTypeValidator } from "../middlewares/tipoHabitacion-validators.js";   
+import { addRoomType, getRoomType, updateRoomType, deleteRoomType } from "./roomType.controller.js";
+import { addRoomTypeValidator, updateRoomTypeValidator, deleteRoomTypeValidator } from "../middlewares/roomType-validators.js";   
 
 const router = Router();
 

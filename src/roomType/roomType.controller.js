@@ -1,4 +1,4 @@
-import RoomType from "./tipoHabitacion.model.js";
+import RoomType from "./roomType.model.js";
 
 export const addRoomType = async (req, res) => {
     try {
