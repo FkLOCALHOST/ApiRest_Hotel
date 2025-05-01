@@ -24,7 +24,7 @@ export const createEventValidator = [
 export const updateEventValidator = [
     validateJWT,
     hasRoles('ADMIN_ROLE', 'HOST_ROLE'),
-    param('id').notEmpty().withMessage('El ID del evento es obligatorio').isMongoId().withMessage('El ID no es válido').custom(eventExists),
+    param('eid').notEmpty().withMessage('El ID del evento es obligatorio').isMongoId().withMessage('El ID no es válido').custom(eventExists),
     body('cost').optional().isNumeric().withMessage('El costo debe ser un número'),
     body('description').optional().isLength({ max: 200 }).withMessage('La descripción no puede exceder los 200 caracteres'),
     body('state').optional().isIn(['Reservado', 'Disponible', 'Ocupado']).withMessage('El estado del evento no es válido'),
@@ -41,7 +41,7 @@ export const updateEventValidator = [
 export const deleteEventValidator = [
     validateJWT,
     hasRoles('ADMIN_ROLE', 'HOST_ROLE'),
-    param('id').notEmpty().withMessage('El ID del evento es obligatorio').isMongoId().withMessage('El ID no es válido').custom(eventExists),
+    param('eid').notEmpty().withMessage('El ID del evento es obligatorio').isMongoId().withMessage('El ID no es válido').custom(eventExists),
     validarCampos,
     handleErrors
 ]

@@ -2,7 +2,7 @@
 import User from "../user/user.model.js"
 import RoomType from "../roomType/roomType.model.js"
 import Services from "../services/services.model.js"
-
+import Event from "../events/events.model.js"
 
 export const roomTypeExists = async (id = " ") => {
     const existe = await RoomType.findById(id);

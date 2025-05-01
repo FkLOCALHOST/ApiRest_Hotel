@@ -3,8 +3,8 @@ import Event from "./events.model.js"
 export const createEvent = async (req, res) =>{
     try{
         const data = req.body
-        let eventPicture = req.file ? req.file.filename : null;
-        data.eventPicture = eventPicture
+        let image = req.file ? req.file.filename : null;
+        data.image = image
 
         const event = await Event.create(data)
         return res.status(201).json({

@@ -11,7 +11,7 @@ const router = Router()
 
 router.post(
     "/createEvent", 
-    uploadEventPicture.single("eventPicture"), 
+    uploadEventPicture.single("image"), 
     createEventValidator, 
     deleteFileOnError,
     createEvent
@@ -22,7 +22,7 @@ router.get("/", getEvents)
 
 router.put(
     "/updateEvent/:eid", 
-    uploadEventPicture.single("eventPicture"), 
+    uploadEventPicture.single("image"), 
     updateEventValidator, 
     deleteFileOnError,
     updateEvent
@@ -34,6 +34,6 @@ router.delete(
     deleteEvent
 )
 
-router.get("/searchEvent", searchEvent)
+router.get("/searchEvent/:name", searchEvent)
 
 export default router
