@@ -26,7 +26,7 @@ export const getEvents = async (req, res) =>{
     try{
         const events = await Event.find()
         .populate('services', 'name')
-        .populate('roomType', 'roomTypeName')
+        .populate('hotel', 'name')
         .exec()
 
         return res.status(200).json({
@@ -49,8 +49,8 @@ export const updateEvent = async (req, res) =>{
     try{
         const {eid} = req.params
         const data = req.body
-        let eventPicture = req.file ? req.file.filename : null;
-        data.eventPicture = eventPicture
+        let image = req.file ? req.file.filename : null;
+        data.image = image
 
         const event = await Event.findByIdAndUpdate(eid, data, {new: true})
         if(!event){

@@ -19,7 +19,8 @@ const eventSchema = new Schema({
     state:{
         type: String,
         enum: ['Reservado', 'Disponible', 'Ocupado'],
-        default: 'Disponible'
+        default: 'Disponible',
+        required: true
     },
     image:{
         type: String
@@ -33,9 +34,9 @@ const eventSchema = new Schema({
         ref: 'Services',
         required: true
     },
-    roomType:{
+    hotel:{
         type: Schema.Types.ObjectId,
-        ref: 'RoomType',
+        ref: 'Hotel',
         required: true
     },
     date:{
