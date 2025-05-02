@@ -2,7 +2,7 @@
 import User from "../user/user.model.js"
 import RoomType from "../roomType/roomType.model.js"
 import Services from "../services/services.model.js"
-
+import Event from "../events/events.model.js"
 
 export const roomTypeExists = async (id = " ") => {
     const existe = await RoomType.findById(id);
@@ -45,4 +45,12 @@ export const serviceExists = async (sid = " ") => {
         throw new Error("No existe el servicio con el ID proporcionado")
     }
 }
+
+export const eventExists = async (name = "") => {
+    const existe = await Event.findOne({ name })
+    if (existe) {
+        throw new Error("Ya existe un evento con ese nombre")
+    }
+}
+
 

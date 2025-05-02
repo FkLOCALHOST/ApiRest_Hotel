@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "5e766289-6cb5-4d24-a051-8ebac7750c41",
+		"_postman_id": "6aad2fb6-c34d-43bc-b1a7-f6c557a9550a",
 		"name": "Hoteleria",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "42278127"
+		"_exporter_id": "42532049"
 	},
 	"item": [
 		{
@@ -18,7 +18,7 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "nombres",
+									"key": "name",
 									"value": "Dabp",
 									"type": "text"
 								},
@@ -55,14 +55,12 @@
 								{
 									"key": "rol",
 									"value": "ADMIN_ROLE",
-									"type": "text",
-									"disabled": true
+									"type": "text"
 								},
 								{
 									"key": "fotoPerfil",
 									"type": "file",
-									"src": "C:/Users/Informatica/Downloads/fotoperfil.jpg",
-									"disabled": true
+									"src": "C:/Users/Informatica/Downloads/fotoperfil.jpg"
 								},
 								{
 									"key": "dpi",
@@ -285,6 +283,321 @@
 								"v1",
 								"hotel",
 								"createHotel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Eventos",
+			"item": [
+				{
+					"name": "CreateEvent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODEyZmM5Y2RmMTEwZTlmNjczMmM0NjgiLCJpYXQiOjE3NDYwOTg2NTEsImV4cCI6MTc0NjEwMjI1MX0.CbaGnv8zDhPXt2xCWiWY4I3A8MO4Y4aB1-T7PIC1s5U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Prueba4",
+									"type": "text"
+								},
+								{
+									"key": "cost",
+									"value": "43.99",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Prueba",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/CompuFire/Downloads/512353138.jpg"
+								},
+								{
+									"key": "size",
+									"value": "34*44",
+									"type": "text"
+								},
+								{
+									"key": "services",
+									"value": "681359ea86aa85f3e98e435a",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "68135a9486aa85f3e98e4366",
+									"type": "text"
+								},
+								{
+									"key": "date",
+									"value": "2025/12/12",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "Disponible",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/event/createEvent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"event",
+								"createEvent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetEvents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/event/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"event",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updtae",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODEyZmM5Y2RmMTEwZTlmNjczMmM0NjgiLCJpYXQiOjE3NDYxMjkyODcsImV4cCI6MTc0NjEzMjg4N30.HBXfVfu6iGBJwepn2knpNFei_zuOvgFeiIpkUDl4ZDA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Actulizado",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/CompuFire/Downloads/512353138.jpg"
+								},
+								{
+									"key": "size",
+									"value": "10^7",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "hola",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/event/updateEvent/6813d21c0ae1dcbc281fed54",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"event",
+								"updateEvent",
+								"6813d21c0ae1dcbc281fed54"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteEvent",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODEyZmM5Y2RmMTEwZTlmNjczMmM0NjgiLCJpYXQiOjE3NDYxMjkyODcsImV4cCI6MTc0NjEzMjg4N30.HBXfVfu6iGBJwepn2knpNFei_zuOvgFeiIpkUDl4ZDA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/event/deleteEvent/6813d30c0ae1dcbc281fed67",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"event",
+								"deleteEvent",
+								"6813d30c0ae1dcbc281fed67"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "searchEvent",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/event/searchEvent/Prueba4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"event",
+								"searchEvent",
+								"Prueba4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODEyZmM5Y2RmMTEwZTlmNjczMmM0NjgiLCJpYXQiOjE3NDYwOTg2NTEsImV4cCI6MTc0NjEwMjI1MX0.CbaGnv8zDhPXt2xCWiWY4I3A8MO4Y4aB1-T7PIC1s5U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ServicioPrueba4\",\r\n    \"Price\": 334.78,\r\n    \"description\": \"sdjfpoisjf\",\r\n    \"schedule\": \"ewiofhoihe\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/service/agregarServicio",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"service",
+								"agregarServicio"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RoomType",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODEyZmM5Y2RmMTEwZTlmNjczMmM0NjgiLCJpYXQiOjE3NDYwOTg2NTEsImV4cCI6MTc0NjEwMjI1MX0.CbaGnv8zDhPXt2xCWiWY4I3A8MO4Y4aB1-T7PIC1s5U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"roomTypeName\": \"Prueba\",\r\n    \"roomTypeDescription\": \"Prueba\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/roomType/addRoomType",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"roomType",
+								"addRoomType"
 							]
 						}
 					},
