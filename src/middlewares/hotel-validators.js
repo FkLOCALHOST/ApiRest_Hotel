@@ -28,3 +28,10 @@ export const getAllHotelsValidator = [
     handleErrors
 ]
 
+export const getHotelsByNameValidator = [
+    validateJWT,
+    body('name').notEmpty().withMessage('Name is required'),
+    validarCampos,
+    handleErrors
+]
+

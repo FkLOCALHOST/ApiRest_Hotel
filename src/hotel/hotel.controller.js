@@ -38,3 +38,28 @@ export const getAllHotels = async (req, res) => {
         });
     }
 }
+
+export const getHotelsByName = async (req, res) => {
+    try{
+        const { name } = req.body;
+        if (!name) {
+            return res.status(400).json({
+                success: false,
+                message: 'Name is required to search hotels',
+            });
+        }
+        const hotels = await Hotel.find({status:true, name: {$regex: name, $options: 'i'}});
+        return res.status(200).json({
+            success: true,
+            total: hotels.length,
+            data: hotels,
+            message: hotels.length === 0 ? 'No se encontraron hoteles activos' : undefined
+        });
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: 'Error al obtener los hoteles',
+            error: err.message,
+        });
+    }
+}
