@@ -25,6 +25,10 @@ const hotelSchema = new Schema({
         enum: ['Motel', 'Resort', 'Boutique', 'Casa', 'Familiar', 'Temático', 'Económico'],
         required: true,
     },
+    status: {
+        type: Boolean,
+        default: true,
+    },
     phone: {
         type: String,
         minLength: 8,

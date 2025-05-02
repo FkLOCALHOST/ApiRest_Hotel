@@ -22,3 +22,9 @@ export const createHotelValidator = [
     deleteFileOnError,
     handleErrors
 ]
+
+export const getAllHotelsValidator = [
+    validateJWT,
+    handleErrors
+]
+

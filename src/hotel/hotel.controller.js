@@ -20,3 +20,21 @@ export const createHotel = async (req, res) => {
         });
     }
 }
+
+export const getAllHotels = async (req, res) => {
+    try{
+        const hotels = await Hotel.find({status:true});
+        return res.status(200).json({
+            success: true,
+            total: hotels.length,
+            data: hotels,
+            message: hotels.length === 0 ? 'No se encontraron hoteles activos' : undefined
+        });
+    }catch(err){
+        return res.status(500).json({
+            success: false,
+            message: 'Error al obtener los hoteles',
+            error: err.message,
+        });
+    }
+}
