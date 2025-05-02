@@ -35,8 +35,13 @@ const hotelSchema = new Schema({
         maxLength: 8,
         required: true
     },
+    host: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true,
+    },
     checkInTime: {
-        type: String,   // Formato "HH:MM" (ej: "15:00" para 3:00 PM)
+        type: String,   
         required: true,
         default: "15:00",
         validate: {
