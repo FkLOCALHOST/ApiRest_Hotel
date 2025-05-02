@@ -9,7 +9,7 @@ import {
     updateHotelValidator,
     deleteHotelValidator
 } from "../middlewares/hotel-validators.js";
-import { validarCampos } from "../middlewares/validate-fields.js";
+
 import { deleteFileOnError } from "../middlewares/delete-file-on-error.js";
 
 
@@ -17,8 +17,8 @@ const router = Router();
 
 router.post(
     "/createHotel",
-    uploadHotelPicture.single("hotelPicture"),
     createHotelValidator,
+    uploadHotelPicture.single("hotelPicture"),
     deleteFileOnError,
     createHotel
 );
@@ -31,9 +31,9 @@ router.get("/getHotel/:id", getHotelByIdValidator, getHotelById);
 
 router.put(
     "/updateHotel/:id",
+    updateHotelValidator,
     uploadHotelPicture.single("hotelPicture"),
     deleteFileOnError,
-    updateHotelValidator,
     updateHotel
 );
 
