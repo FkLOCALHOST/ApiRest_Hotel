@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 
 const roomSchema = new Schema({
-    number: {
+    name: {
         type: String,
         required: true
     },
@@ -51,12 +51,20 @@ const roomSchema = new Schema({
     images: [{
         type: String
     }],
-    amenities: [{
-        type: String
-    }],
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    }
 }, {
     timestamps: true,
     versionKey: false
 });
+
+roomSchema.methods.toJSON = function () {
+    const { __v, _id, ...room } = this.toObject()
+    room.rid = _id
+    return room
+}
 
 export default model("Room", roomSchema);
