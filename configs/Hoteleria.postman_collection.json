@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "6aad2fb6-c34d-43bc-b1a7-f6c557a9550a",
+		"_postman_id": "b043ed24-12cf-44c2-92b5-799453ee075f",
 		"name": "Hoteleria",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "42532049"
+		"_exporter_id": "42278127"
 	},
 	"item": [
 		{
@@ -285,6 +285,133 @@
 								"createHotel"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar hoteles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODE0Y2Q4Nzc0MDM3NTgxOGRlMmY5MTEiLCJpYXQiOjE3NDYxOTM4MzgsImV4cCI6MTc0NjE5NzQzOH0.bla9Tk4JxnUXLZ5hNOXwpmm97ZYCo1Xzy9fANjnkhIc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/hotel/getAllHotels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"hotel",
+								"getAllHotels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hotel por nombres",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODExYjFkZjVmZDZjMmU1Y2VhMDYyNjMiLCJpYXQiOjE3NDYxOTQyMjksImV4cCI6MTc0NjE5NzgyOX0.MAoic4W5nYH3DXUp0imsrl_A2ah2sZVAd0sFS5U8yZE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"America\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/hotel/getHotelsByName",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"hotel",
+								"getHotelsByName"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update hotel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODExYjFkZjVmZDZjMmU1Y2VhMDYyNjMiLCJpYXQiOjE3NDYyMDM0NTksImV4cCI6MTc0NjIwNzA1OX0.l2Un-Io-eWRvosKGjRRPKt9DlSDA9j7-y0m0WnNA3XQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "hotelPicture",
+									"type": "file",
+									"src": "/C:/Users/danie/Downloads/americas 2.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/hotel/updateHotel/6814e2922356fc5492de3064",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"hotel",
+								"updateHotel",
+								"6814e2922356fc5492de3064"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
@@ -598,6 +725,107 @@
 								"v1",
 								"roomType",
 								"addRoomType"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "room",
+			"item": [
+				{
+					"name": "crear habitacion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODExYjFkZjVmZDZjMmU1Y2VhMDYyNjMiLCJpYXQiOjE3NDY0MDcyOTEsImV4cCI6MTc0NjQxMDg5MX0.bnbCrb33kbCMBhpounTFTOo0jaeEqUsSeYSwt38BoXM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "I-25",
+									"type": "text"
+								},
+								{
+									"key": "hotel",
+									"value": "6814e2922356fc5492de3064",
+									"type": "text"
+								},
+								{
+									"key": "roomType",
+									"value": "681810c11e3ddbcf1d9d4fc8",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "50",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "beds",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "bathrooms",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "Mediano",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "Cuarto espacioso",
+									"type": "text"
+								},
+								{
+									"key": "roomPictures",
+									"type": "file",
+									"src": [
+										"/C:/Users/danie/Downloads/americas 2.jpg",
+										"/C:/Users/danie/Downloads/americas.jpg"
+									]
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/hoteleria/v1/room/createRoom",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"hoteleria",
+								"v1",
+								"room",
+								"createRoom"
 							]
 						}
 					},
